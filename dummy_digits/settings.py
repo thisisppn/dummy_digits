@@ -27,7 +27,7 @@ SECRET_KEY = '6ceyt(bv*p7a5tqzy99eh^(+$81)a9-otohjbqvyuvpl#07_))'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dummydigits.com']
+ALLOWED_HOSTS = ['dummydigits.com', 'localhost']
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'plivo_handler'
+    'plivo_handler.apps.PlivoHandlerConfig'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +78,10 @@ WSGI_APPLICATION = 'dummy_digits.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dummy_digits',
+        'USER': 'root',
+        'PASSWORD': 'root'
     }
 }
 
